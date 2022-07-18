@@ -1,0 +1,38 @@
+.user {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  height: 50.1px;
+  margin: 10px 0px;
+  margin-right: 20px;
+  padding: 7px 5px;
+  border: 2px solid #f0f0f0;
+  overflow: hidden;
+}
+.usernameHeader {
+  font-size: 13px;
+  font-weight: 700;
+}
+.userEmail {
+  font-size: 12px;
+  font-weight: 500;
+}
+.delBtn {
+  position: absolute;
+  bottom: 3px;
+  align-self: flex-end;
+  background-color: red;
+  padding: 0.1px 0.7px;
+
+  font-size: 7.7px;
+  text-transform: uppercase;
+  border-radius: 1px;
+  border: 0.001px solid black;
+  user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+}
