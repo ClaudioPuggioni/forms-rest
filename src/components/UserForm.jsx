@@ -2,7 +2,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import "./UserForm.css";
 
-export default function UserForm() {
+export default function UserForm({ getData }) {
   return (
     <div className="formContainer">
       <div className="header">Create Account</div>
@@ -19,13 +19,15 @@ export default function UserForm() {
           password: Yup.string().min(8, "Must be at least 8 characters").max(15, "Must be 15 characters or less").required("Required"),
           passwordConfirmation: Yup.string().oneOf([Yup.ref("password"), null], "Passwords must match"),
         })}
-        onSubmit={async (values, { setSubmitting }) => {
+        onSubmit={async (values, { setSubmitting, resetForm }) => {
           await fetch("https://60795d16460a6600174fb9bc.mockapi.io/mclarenfetch/users", {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(values),
           }).catch((err) => console.log("error is", err));
           setSubmitting(false);
+          getData();
+          resetForm();
         }}
       >
         {({ isSubmitting }) => (
